@@ -1708,6 +1708,69 @@ Lei 9.610/98 – Direitos Autorais.
     </div>
   </section>
 
+
+  <!-- ============================================================
+       SEÇÃO: FORMAS DE PAGAMENTO
+       ============================================================ -->
+  <section class="pagamento-section" id="pagamento">
+    <div class="section-header" style="padding-bottom:2.5rem;">
+      <span class="section-tag">✦ Formas de Pagamento</span>
+      <h2 class="section-title">Pague do jeito que <em>preferir</em></h2>
+    </div>
+    <div class="pagamento-grid">
+
+      <!-- PIX -->
+      <div class="pagamento-card">
+        <div class="pagamento-icon pix">
+          <svg width="26" height="26" viewBox="0 0 512 512" fill="currentColor">
+            <path d="M400.22 329.86c-23.82 0-46.21-9.28-63.05-26.13l-81.2-81.2c-3.78-3.77-9.93-3.77-13.74 0l-81.53 81.53c-16.84 16.84-39.22 26.12-63.05 26.12H86l102.3 102.31c39.47 39.47 103.47 39.47 142.94 0L433.54 329.86h-33.32zm-303.57-148.1c23.83 0 46.22 9.28 63.05 26.13l81.53 81.52c3.81 3.78 9.93 3.78 13.74 0l81.2-81.2c16.84-16.85 39.23-26.13 63.05-26.13h29.77L327.68 80.77c-39.47-39.47-103.47-39.47-142.94 0L82.43 181.76h14.22z"/>
+            <path d="M456.88 209.86l-46.44-46.44h-10.22c-16.12 0-31.78 6.47-43.1 17.8l-81.2 81.19c-9.65 9.63-22.5 14.94-36.05 14.94s-26.4-5.31-36.06-14.97L122.28 181c-11.32-11.33-26.97-17.8-43.1-17.8H54.89L8.45 209.64c-11.27 11.27-11.27 29.56 0 40.83l46.44 46.44h24.29c16.12 0 31.78-6.47 43.1-17.8l81.53-81.52c9.43-9.41 22.19-14.94 36.06-14.94 13.86 0 26.62 5.53 36.05 14.94l81.2 81.2c11.32 11.33 26.97 17.8 43.1 17.8h14.67l46.19-46.19c11.27-11.27 11.27-29.56 0-40.54z"/>
+          </svg>
+        </div>
+        <h3>PIX</h3>
+        <p>Pagamento instantâneo — aprovação imediata e início do pedido na hora.</p>
+        <button class="pagamento-chave" onclick="copiarChavePix(this)" title="Clique para copiar">
+          <span class="copiado">✓ Copiado!</span>
+          📱 11950673897
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <p style="font-size:0.75rem;color:var(--muted);">Chave: celular</p>
+      </div>
+
+      <!-- CARTÃO DE CRÉDITO -->
+      <div class="pagamento-card">
+        <div class="pagamento-icon credit">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <h3>Cartão de Crédito</h3>
+        <p>Parcelamento disponível via link seguro do Mercado Pago.</p>
+        <a href="https://link.mercadopago.com.br/drikaartesretrospectivas" class="btn-pagar" target="_blank" rel="noopener noreferrer">
+          Pagar com Crédito
+        </a>
+        <p style="font-size:0.72rem;color:var(--muted);">Processado pelo Mercado Pago 🔒</p>
+      </div>
+
+      <!-- CARTÃO DE DÉBITO -->
+      <div class="pagamento-card">
+        <div class="pagamento-icon debit">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+            <circle cx="7" cy="15" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Cartão de Débito</h3>
+        <p>Pagamento à vista com débito direto via link seguro do Mercado Pago.</p>
+        <a href="https://link.mercadopago.com.br/drikaartesretrospectivas" class="btn-pagar teal" target="_blank" rel="noopener noreferrer">
+          Pagar com Débito
+        </a>
+        <p style="font-size:0.72rem;color:var(--muted);">Processado pelo Mercado Pago 🔒</p>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ============ MELHORIA 4: RODAPÉ  ============ -->
   <footer class="footer">
     <div class="footer-body">
@@ -1850,7 +1913,7 @@ Lei 9.610/98 – Direitos Autorais.
     </div>
   </footer>
 
-  <script><script>
+  <script>
     /* ============================================
        SEÇÃO PEÇAS — VÍDEO INLINE NO CARD (produto1.mp4)
        ============================================ */
@@ -2083,6 +2146,27 @@ Lei 9.610/98 – Direitos Autorais.
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') fecharModal();
     });
+
+    /* ============================================
+       COPIAR CHAVE PIX
+       ============================================ */
+    function copiarChavePix(btn) {
+      navigator.clipboard.writeText('11950673897').then(() => {
+        btn.classList.add('copiou');
+        setTimeout(() => btn.classList.remove('copiou'), 2000);
+      }).catch(() => {
+        // fallback para navegadores sem clipboard API
+        const el = document.createElement('textarea');
+        el.value = '11950673897';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        btn.classList.add('copiou');
+        setTimeout(() => btn.classList.remove('copiou'), 2000);
+      });
+    }
+
 
     /* ============================================
        MELHORIA 3 — VÍDEOS ESTILO NETFLIX
