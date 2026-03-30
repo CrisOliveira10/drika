@@ -2094,25 +2094,62 @@ Lei 9.610/98 – Direitos Autorais.
       if (e.key === 'Escape') fecharModal();
     });
 
-    /* ============================================
-       COPIAR CHAVE PIX
-       ============================================ */
-    function copiarChavePix(btn) {
-      navigator.clipboard.writeText('11950673897').then(() => {
-        btn.classList.add('copiou');
-        setTimeout(() => btn.classList.remove('copiou'), 2000);
-      }).catch(() => {
-        // fallback para navegadores sem clipboard API
-        const el = document.createElement('textarea');
-        el.value = '11950673897';
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-        btn.classList.add('copiou');
-        setTimeout(() => btn.classList.remove('copiou'), 2000);
-      });
+/* ============================================
+   CORREÇÃO FINAL — VÍDEOS INLINE GENERALIZADOS
+   ============================================ */
+['1','9','10'].forEach(num => {
+  const v  = document.getElementById('pecaVid' + num);
+  const ov = document.getElementById('pecaOv' + num);
+  if (!v) return;
+  v.muted = true;
+
+  const wrap = v.closest('.peca-midia');
+  if (wrap) {
+    wrap.addEventListener('mouseenter', () => {
+      v.play().catch(() => {});
+      if (ov) ov.classList.add('hidden');
+    });
+    wrap.addEventListener('mouseleave', () => {
+      v.pause();
+      v.currentTime = 0;
+      if (ov) ov.classList.remove('hidden');
+      const pi = document.getElementById('pvcPI' + num);
+      const pa = document.getElementById('pvcPA' + num);
+      if (pi) pi.style.display = 'block';
+      if (pa) pa.style.display = 'none';
+    });
+  }
+
+  v.addEventListener('click', () => {
+    v.muted = false;
+    const el = v.requestFullscreen ? v : v.closest('.peca-midia');
+    if (el && el.requestFullscreen) el.requestFullscreen();
+    else if (el && el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    v.play().catch(() => {});
+  });
+
+  // Atualização de barra/tempo
+  v.addEventListener('timeupdate', () => {
+    if (!v.duration) return;
+    const pct = (v.currentTime / v.duration) * 100;
+    const fill = document.getElementById('pvcF' + num);
+    const time = document.getElementById('pvcT' + num);
+    if (fill) fill.style.width = pct + '%';
+    if (time) {
+      const m = Math.floor(v.currentTime/60);
+      const s = Math.floor(v.currentTime%60).toString().padStart(2,'0');
+      time.textContent = `${m}:${s}`;
     }
+  });
+
+  v.addEventListener('ended', () => {
+    if (ov) ov.classList.remove('hidden');
+    const pi = document.getElementById('pvcPI' + num);
+    const pa = document.getElementById('pvcPA' + num);
+    if (pi) pi.style.display = 'block';
+    if (pa) pa.style.display = 'none';
+  });
+});
 
 
     /* ============================================
