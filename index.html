@@ -2095,12 +2095,11 @@ Lei 9.610/98 – Direitos Autorais.
     });
 
 /* ============================================
-   CORREÇÃO FINAL — VÍDEOS INLINE GENERALIZADOS
+   CORREÇÃO FINAL UNIVERSAL — VÍDEOS INLINE
    ============================================ */
-['1','9','10'].forEach(num => {
-  const v  = document.getElementById('pecaVid' + num);
-  const ov = document.getElementById('pecaOv' + num);
-  if (!v) return;
+document.querySelectorAll('video[id^="pecaVid"]').forEach(v => {
+  const num = v.id.replace('pecaVid','');
+  const ov  = document.getElementById('pecaOv' + num);
   v.muted = true;
 
   const wrap = v.closest('.peca-midia');
@@ -2150,7 +2149,6 @@ Lei 9.610/98 – Direitos Autorais.
     if (pa) pa.style.display = 'none';
   });
 });
-
 
     /* ============================================
        MELHORIA 3 — VÍDEOS ESTILO NETFLIX
