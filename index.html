@@ -2047,7 +2047,7 @@ Lei 9.610/98 – Direitos Autorais.
       bodyMb.classList.toggle('aberto');
     });
 
-    /* ============================================
+     /* ============================================
        MELHORIA 2 — MODAL DE PLAYLIST (sem API)
        Abre o YouTube embed dentro do site
        ============================================ */
@@ -2093,6 +2093,7 @@ Lei 9.610/98 – Direitos Autorais.
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') fecharModal();
     });
+
 
 /* ============================================
    CORREÇÃO FINAL UNIVERSAL — VÍDEOS INLINE
@@ -2231,4 +2232,15 @@ document.querySelectorAll('video[id^="pecaVid"]').forEach(v => {
         const wrapEl = v.closest('.video-player-wrap');
         if (wrapEl) {
           if (wrapEl.requestFullscreen) wrapEl.requestFullscreen();
-          else if (wrapEl.webkitRequestFullscreen) wrapEl.webk
+          else if (wrapEl.webkitRequestFullscreen) wrapEl.webkitRequestFullscreen();
+        }
+        v.play().catch(() => {});
+        if (ov) ov.classList.add('hidden');
+        if (pi) pi.style.display = 'none';
+        if (pa) pa.style.display = 'block';
+      });
+    })();
+
+  </script>
+</body>
+</html>
